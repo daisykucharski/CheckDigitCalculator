@@ -2,6 +2,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
+/**
+ * Tests for the {@code Calculator} class. Uses existing check digit calculations to ensure
+ * it works as expected.
+ */
 public class CalculatorTest {
   private final Calculator calculator = new Calculator();
 

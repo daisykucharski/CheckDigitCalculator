@@ -1,11 +1,20 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A class to calculate the check digit given an entry number.
+ */
 public class Calculator {
 
-  public Calculator() {
-  }
-
+  /**
+   * Calculates the check digit for the given entry number. A valid entry number is in the form of
+   * "XXX-XXXXXXX". The first 3 digits can be letters/numbers and the last 7 digits must be numbers.
+   * The check digit is returned with the rest of the entry number in the form of "XXX-XXXXXXX-X".
+   *
+   * @param entryNumber the entry number the check digit is being calculated for
+   * @return The check digit in the form "XXX-XXXXXXX-X"
+   * @throws IllegalArgumentException if the entry number is invalid (null or invalid form).
+   */
   public String calculateCheckDigit(String entryNumber) throws IllegalArgumentException {
     String numericBaseValue = this.calculateNumericBaseValue(entryNumber);
     int checkDigitBaseValue = this.calculateAdjustedEvenSumValue(numericBaseValue) + this
@@ -14,6 +23,7 @@ public class Calculator {
     return entryNumber + "-" + checkDigit;
   }
 
+  // calculates the numeric base value for the given entry number (used to find check digit).
   private String calculateNumericBaseValue(String entryNumber) throws IllegalArgumentException {
     if (entryNumber != null && entryNumber.length() == 11 && entryNumber.charAt(3) == '-') {
       StringBuilder result = new StringBuilder();
@@ -29,8 +39,10 @@ public class Calculator {
     }
   }
 
+
+  // gets the numeric value associated with the given character
   private int getNumericValue(char ch) {
-    Map<Character, Integer> valueMapping = new HashMap();
+    Map<Character, Integer> valueMapping = new HashMap<>();
     valueMapping.put('A', 1);
     valueMapping.put('B', 2);
     valueMapping.put('C', 3);
@@ -57,9 +69,10 @@ public class Calculator {
     valueMapping.put('X', 7);
     valueMapping.put('Y', 8);
     valueMapping.put('Z', 9);
-    return (Integer) valueMapping.getOrDefault(ch, Character.getNumericValue(ch));
+    return valueMapping.getOrDefault(ch, Character.getNumericValue(ch));
   }
 
+  // calculates the adjusted even sum value from the given numeric base value
   private int calculateAdjustedEvenSumValue(String nbv) {
     int result = 0;
 
@@ -76,11 +89,14 @@ public class Calculator {
     return result;
   }
 
+  // calculates the odd sum value from the given numeric base value
   private int calculateOddSumValue(String nbv) {
     return this.getDigit(nbv, 0) + this.getDigit(nbv, 2) + this.getDigit(nbv, 4) + this
         .getDigit(nbv, 6) + this.getDigit(nbv, 8);
   }
 
+  // gets the digit in the pos position in the given numeric base value. In the NBV "9876543210", the
+  // positions are self described.
   private int getDigit(String nbv, int pos) {
     return Character.getNumericValue(nbv.charAt(pos));
   }
