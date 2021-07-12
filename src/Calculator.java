@@ -6,6 +6,42 @@ import java.util.Map;
  */
 public class Calculator {
 
+  private final Map<Character, Integer> valueMapping;
+
+  /**
+   * Creates a Calculator object. Stores the mapping of letters to numbers used to calculate the
+   * Numeric Base Value.
+   */
+  public Calculator() {
+    valueMapping = new HashMap<>();
+    valueMapping.put('A', 1);
+    valueMapping.put('B', 2);
+    valueMapping.put('C', 3);
+    valueMapping.put('D', 4);
+    valueMapping.put('E', 5);
+    valueMapping.put('F', 6);
+    valueMapping.put('G', 7);
+    valueMapping.put('H', 8);
+    valueMapping.put('I', 9);
+    valueMapping.put('J', 1);
+    valueMapping.put('K', 2);
+    valueMapping.put('L', 3);
+    valueMapping.put('M', 4);
+    valueMapping.put('N', 5);
+    valueMapping.put('O', 6);
+    valueMapping.put('P', 7);
+    valueMapping.put('Q', 8);
+    valueMapping.put('R', 9);
+    valueMapping.put('S', 2);
+    valueMapping.put('T', 3);
+    valueMapping.put('U', 4);
+    valueMapping.put('V', 5);
+    valueMapping.put('W', 6);
+    valueMapping.put('X', 7);
+    valueMapping.put('Y', 8);
+    valueMapping.put('Z', 9);
+  }
+
   /**
    * Calculates the check digit for the given entry number. A valid entry number is in the form of
    * "XXX-XXXXXXX". The first 3 digits can be letters/numbers and the last 7 digits must be numbers.
@@ -42,33 +78,6 @@ public class Calculator {
 
   // gets the numeric value associated with the given character
   private int getNumericValue(char ch) {
-    Map<Character, Integer> valueMapping = new HashMap<>();
-    valueMapping.put('A', 1);
-    valueMapping.put('B', 2);
-    valueMapping.put('C', 3);
-    valueMapping.put('D', 4);
-    valueMapping.put('E', 5);
-    valueMapping.put('F', 6);
-    valueMapping.put('G', 7);
-    valueMapping.put('H', 8);
-    valueMapping.put('I', 9);
-    valueMapping.put('J', 1);
-    valueMapping.put('K', 2);
-    valueMapping.put('L', 3);
-    valueMapping.put('M', 4);
-    valueMapping.put('N', 5);
-    valueMapping.put('O', 6);
-    valueMapping.put('P', 7);
-    valueMapping.put('Q', 8);
-    valueMapping.put('R', 9);
-    valueMapping.put('S', 2);
-    valueMapping.put('T', 3);
-    valueMapping.put('U', 4);
-    valueMapping.put('V', 5);
-    valueMapping.put('W', 6);
-    valueMapping.put('X', 7);
-    valueMapping.put('Y', 8);
-    valueMapping.put('Z', 9);
     return valueMapping.getOrDefault(ch, Character.getNumericValue(ch));
   }
 
