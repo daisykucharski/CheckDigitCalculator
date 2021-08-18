@@ -1,0 +1,22 @@
+body {
+    font-family: 'STIX Two Text', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label, p {
+    font-size: 1.5rem;
+}
+
+button {
+    font: 1.5rem;
+}
+
+input {
+    margin: 20px;
+}
+
+footer {
+    margin: 20px;
+}

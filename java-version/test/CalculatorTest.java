@@ -29,6 +29,7 @@ public class CalculatorTest {
     calculator.calculateCheckDigit("MZ5-01059");
   }
 
+
   @Test
   public void testOutputCorrectEntryNumber() {
     assertEquals("MZ5-0100857-4", calculator.calculateCheckDigit("MZ5-0100857"));

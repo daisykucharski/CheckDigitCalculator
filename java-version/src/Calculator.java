@@ -60,7 +60,7 @@ public class Calculator {
   }
 
   // calculates the numeric base value for the given entry number (used to find check digit).
-  private String calculateNumericBaseValue(String entryNumber) throws IllegalArgumentException {
+  public String calculateNumericBaseValue(String entryNumber) throws IllegalArgumentException {
     if (entryNumber != null && entryNumber.length() == 11 && entryNumber.charAt(3) == '-') {
       StringBuilder result = new StringBuilder();
 
@@ -82,7 +82,7 @@ public class Calculator {
   }
 
   // calculates the adjusted even sum value from the given numeric base value
-  private int calculateAdjustedEvenSumValue(String nbv) {
+  public int calculateAdjustedEvenSumValue(String nbv) {
     int result = 0;
 
     for (int i = 1; i < 10; i += 2) {
@@ -99,7 +99,7 @@ public class Calculator {
   }
 
   // calculates the odd sum value from the given numeric base value
-  private int calculateOddSumValue(String nbv) {
+  public int calculateOddSumValue(String nbv) {
     return this.getDigit(nbv, 0) + this.getDigit(nbv, 2) + this.getDigit(nbv, 4) + this
         .getDigit(nbv, 6) + this.getDigit(nbv, 8);
   }
