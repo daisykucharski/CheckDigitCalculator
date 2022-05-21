@@ -1,4 +1,6 @@
 # CheckDigitCalculator
+Check it out at this [link](https://daisykucharski.github.io/CheckDigitCalculator/)
+
 
 CheckDigitCalculator is a simple check digit calculator for my mother's customs brokering company KMK CHB. Her software originally did this for her, but support was removed for that feature. Calculating the check digits isn't a particularly difficult process, but it interefered with her workflow so I offered to write this program.
 
